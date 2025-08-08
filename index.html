@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang=en>
+
+<head>
+    <meta charset=UTF-8>
+    <meta name=viewport content="width=device-width,initial-scale=1">
+    <title>Securinets Media Assets</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel=stylesheet>
+    <link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        body {
+            font-family: Inter, sans-serif;
+            background: linear-gradient(to bottom, rgba(139, 0, 0, .8), #000);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            padding: 0 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .container {
+            max-width: 900px;
+            width: 100%;
+            overflow-y: auto;
+            max-height: 90vh;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            font-weight: 700
+        }
+
+        .asset-list {
+            list-style: none;
+            padding: 0;
+            width: 100%
+        }
+
+        .asset-item {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, .1);
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: transform .3s ease, background .3s ease
+        }
+
+        .asset-item:hover {
+            background: rgba(255, 255, 255, .2);
+            transform: translateY(-5px)
+        }
+
+        .asset-preview img {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+            border-radius: 8px
+        }
+
+        .asset-details {
+            flex-grow: 1;
+            text-align: left;
+            margin-left: 20px
+        }
+
+        .asset-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #fff
+        }
+
+        .buttons {
+            display: flex;
+            gap: 10px
+        }
+
+        .btn {
+            background-color: rgba(255, 255, 255, .1);
+            border: none;
+            padding: 10px 15px;
+            border-radius: 8px;
+            color: #fff;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: background .2s ease
+        }
+
+        .btn:hover {
+            background-color: rgba(255, 255, 255, .2)
+        }
+
+        .btn-download {
+            background-color: rgba(0, 0, 0, .1)
+        }
+
+        .btn-download:hover {
+            background-color: rgba(0, 0, 0, .2)
+        }
+
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, .1);
+            padding: 10px 20px;
+            border-radius: 8px;
+            color: #fff;
+            font-size: 1rem;
+            display: none;
+            animation: fadeIn 1s ease-out
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(-10px)
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+        @media (max-width:768px) {
+            h1 {
+                font-size: 2rem
+            }
+
+            .asset-item {
+                padding: 15px
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class=notification id=notification>
+        Link copied to clipboard!
+    </div>
+    <div class=container>
+        <h1>Securinets Media Assets</h1>
+        <ul class=asset-list id=asset-list>
+        </ul>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
